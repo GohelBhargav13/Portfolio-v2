@@ -9,7 +9,7 @@ function Contact() {
                 <div className="w-[28%] hidden sm:hidden md:block">
                     <Profile />
                 </div>
-                <div className="w-3/4 p-2">
+                <div className="w-3/4 p-2 ">
                     <ContactSection />
                 </div>
         </div>
