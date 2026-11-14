@@ -61,7 +61,7 @@ function CertificateSection() {
             className="bg-gray-950/30 border-2 border-gray-300/30 rounded-sm h-full p-2 m-2 flex flex-col"
             key={certi.name}
           >
-            <div className="flex bg-gray-700/60 border-2 border-gray-500 rounded-xl p-3 justify-center">
+            <div className="flex bg-gray-700/60 border-2 border-gray-500 rounded-xl p-3 justify-center ">
               <img
                 src={commonProvider[certi.provider]}
                 width="250"
