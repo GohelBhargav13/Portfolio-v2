@@ -1,19 +1,45 @@
-import Profile from "../component/Profile"
-import ProjectOverview from "../component/ProjectOverview"
+import Profile from "../component/Profile";
+import ProjectOverview from "../component/ProjectOverview";
 
 function Overview() {
   return (
-    <div className='max-w-1370 w-full bg-gray-950/95 text-white'>
-        <div className="flex flex-col gap-4 w-full sm:flex sm:flex-col md:flex md:flex-col lg:flex lg:flex-row">
-                <div className="w-[27%]">
-                        <Profile />
-                </div>
-                <div className="w-3/4">
-                    <ProjectOverview />
-                </div>
+    <div className="w-full max-w-342.5 bg-gray-950/95 text-white">
+      <div
+        className="
+        flex flex-col
+        gap-4
+        w-full
+        p-3 sm:p-4
+        lg:flex-row
+        lg:items-start
+        lg:gap-5
+      "
+      >
+        {/* Profile Section */}
+        <div
+          className="
+          w-full
+          min-w-0
+          lg:w-[28%]
+          lg:shrink-0
+        "
+        >
+          <Profile />
         </div>
+
+        {/* Project Overview Section */}
+        <div
+          className="
+          w-full
+          min-w-0
+          lg:flex-1
+        "
+        >
+          <ProjectOverview />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Overview
+export default Overview;

@@ -1,6 +1,6 @@
 import { ChevronDown, BookBookmark, Link } from "lucide-react";
 
-// declare the type for the each project
+// Declare the type for each project
 type projectStructure = {
   name: string;
   des: string;
@@ -10,7 +10,7 @@ type projectStructure = {
   liveLink: string;
 };
 
-// the project array with above types
+// Project array
 const projectList: projectStructure[] = [
   {
     name: "PassAI",
@@ -74,101 +74,122 @@ const projectList: projectStructure[] = [
 
 function ProjectList() {
   return (
-    <div className="flex flex-col gap-5 p-5">
-      <div className="flex w-full max-w-1370 items-center">
-        <div className="hidden sm:hidden md:hidden lg:block">
+    <div className="flex min-w-0 w-full flex-col gap-4 sm:gap-5 p-3 sm:p-4 md:p-5">
+      {/* Search and Filters */}
+      <div className="flex w-full min-w-0 flex-col gap-3 lg:flex-row lg:items-center">
+        {/* Search */}
+        <div className="hidden lg:block lg:flex-1">
           <input
             type="text"
             placeholder="Find a repository..."
-            className="w-100 border-gray-700 border-2 p-1.5 rounded-lg hidden md:block lg:block"
+            className="w-full max-w-md rounded-lg border-2 border-gray-700 bg-transparent p-2 outline-none focus:border-blue-500"
           />
         </div>
-        <div className="w-full flex gap-1">
-          <div className="flex gap-1.5 bg-gray-500/30 border-2 border-gray-600 p-2 px-6 m-1 rounded-xl hover:cursor-pointer">
-            <button className="hidden sm:hidden md:block">Type</button>
-            <ChevronDown />
+
+        {/* Filter Buttons */}
+        <div className="flex w-full min-w-0 items-center gap-1 sm:gap-2 lg:w-auto lg:justify-end">
+          <div className="flex flex-1 items-center justify-center gap-1 rounded-xl border-2 border-gray-600 bg-gray-500/30 p-2 hover:cursor-pointer sm:flex-none sm:px-4">
+            <button className="hidden sm:block">Type</button>
+            <ChevronDown size={18} />
           </div>
-          <div className="flex gap-1.5 bg-gray-500/30 border-2 border-gray-600 p-2 px-6 m-1 rounded-xl hover:cursor-pointer">
-            <button className="hidden sm:hidden md:block">Language</button>
-            <ChevronDown />
+
+          <div className="flex flex-1 items-center justify-center gap-1 rounded-xl border-2 border-gray-600 bg-gray-500/30 p-2 hover:cursor-pointer sm:flex-none sm:px-4">
+            <button className="hidden sm:block">Language</button>
+            <ChevronDown size={18} />
           </div>
-          <div className="flex gap-1.5 bg-gray-500/30 border-2 border-gray-600 p-2 px-6 m-1 rounded-xl hover:cursor-pointer">
-            <button className="hidden sm:hidden md:block">Sort</button>
-            <ChevronDown />
+
+          <div className="flex flex-1 items-center justify-center gap-1 rounded-xl border-2 border-gray-600 bg-gray-500/30 p-2 hover:cursor-pointer sm:flex-none sm:px-4">
+            <button className="hidden sm:block">Sort</button>
+            <ChevronDown size={18} />
           </div>
-          <div className="flex gap-1.5 bg-green-500/80 border-2 border-gray-600 p-2 px-6 m-1 rounded-xl hover:cursor-pointer">
-            <BookBookmark />
-            <button className="hidden sm:hidden md:block">New</button>
+
+          <div className="flex flex-1 items-center justify-center gap-1 rounded-xl border-2 border-gray-600 bg-green-500/80 p-2 hover:cursor-pointer sm:flex-none sm:px-4">
+            <BookBookmark size={18} />
+            <button className="hidden sm:block">New</button>
           </div>
         </div>
       </div>
-      <hr className="text-gray-600" />
-      <div className="grid grid-cols-1 gap-1.5">
+
+      <hr className="border-gray-600" />
+
+      {/* Project List */}
+      <div className="flex w-full min-w-0 flex-col gap-4">
         {projectList.map((pro, i) => (
-          <>
-            <div className="flex flex-col gap-2.5" key={i}>
-              <div className="flex gap-2">
-                <div className="max-w-100 flex">
-                  <div>
-                    <p className="text-blue-500 font-bold text-lg hover:cursor-pointer hover:border-b-2 hover:border-b-blue-600 w-39 sm:39 md:42">
-                      {pro.name}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-gray-400/80 border-2 border-gray-600 p-0.5 rounded-xl bg-gray-950">
-                      {pro.visibility}
-                    </p>
-                  </div>
-                </div>
-                <div className="w-full text-end">
-                  <button className=" bg-gray-500/30 border-2 border-gray-100/20 p-2 w-30 px-6 rounded-md hover:cursor-pointer">
-                    Star
-                  </button>
-                </div>
+          <div key={i} className="flex min-w-0 flex-col gap-3">
+            {/* Project Header */}
+            <div className="flex min-w-0 items-center justify-between gap-2">
+              <div className="flex min-w-0 flex-wrap items-center gap-2">
+                <p className="max-w-full break-all text-base font-bold text-blue-500 hover:cursor-pointer hover:border-b-2 hover:border-b-blue-600 sm:text-lg">
+                  {pro.name}
+                </p>
+
+                <span className="shrink-0 rounded-xl border-2 border-gray-600 bg-gray-950 px-2 py-0.5 text-xs text-gray-400/80 sm:text-sm">
+                  {pro.visibility}
+                </span>
               </div>
-              <div className="flex gap-2">
-                <div className="max-w-200">
-                  <p className="text-gray-400 w-100 sm:w-100 md:w-120 lg:w-150">
-                    {pro.des}
-                  </p>
-                </div>
+
+              <div className="shrink-0">
+                <button className="rounded-md border-2 border-gray-100/20 bg-gray-500/30 px-3 py-1.5 text-sm hover:cursor-pointer sm:px-5 sm:py-2">
+                  Star
+                </button>
               </div>
-              <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 text-center">
-                {pro.techStack.map((skill, i) => (
-                  <>
-                    <p key={i} className="bg-blue-800/50 p-1 rounded-xl">
-                      {skill}
-                    </p>
-                  </>
-                ))}
-              </div>
-              <div className="flex gap-1">
-                <code className="text-gray-500">GITHUB:-</code>
-                <a
-                  className="text-blue-500 font-bold text-md hover:cursor-pointer flex gap-0.5 hover:border-b-2 hover:border-blue-500"
-                  target="_blank"
-                  href={pro.githubLink}
-                >
-                  <Link size={18} />
-                  Link
-                </a>
-              </div>
-              <div className="flex gap-1">
-                <code className="text-gray-500">LIVELINK:-</code>
-                <a
-                  className="text-blue-500 font-bold text-md hover:cursor-pointer flex gap-0.5 hover:border-b-2 hover:border-blue-500"
-                  target="_blank"
-                  href={pro.liveLink}
-                >
-                  <Link size={18} />
-                  Link
-                </a>
-              </div>
-              
-              <hr className="text-gray-600" />
             </div>
-            <br />
-          </>
+
+            {/* Project Description */}
+            <div className="w-full min-w-0">
+              <p className="break-all text-sm leading-relaxed text-gray-400 sm:text-base">
+                {pro.des}
+              </p>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2">
+              {pro.techStack.map((skill, index) => (
+                <span
+                  key={index}
+                  className="rounded-xl bg-blue-800/50 px-2 py-1 text-center text-xs sm:text-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            {/* GitHub Link */}
+            <div className="flex min-w-0 flex-wrap items-center gap-2">
+              <code className="shrink-0 text-xs text-gray-500 sm:text-sm">
+                GITHUB:
+              </code>
+
+              <a
+                className="flex items-center gap-1 break-all text-sm font-bold text-blue-500 hover:border-b-2 hover:border-blue-500 sm:text-base"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={pro.githubLink}
+              >
+                <Link size={16} className="shrink-0" />
+                Link
+              </a>
+            </div>
+
+            {/* Live Link */}
+            <div className="flex min-w-0 flex-wrap items-center gap-2">
+              <code className="shrink-0 text-xs text-gray-500 sm:text-sm">
+                LIVELINK:
+              </code>
+
+              <a
+                className="flex items-center gap-1 break-all text-sm font-bold text-blue-500 hover:border-b-2 hover:border-blue-500 sm:text-base"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={pro.liveLink}
+              >
+                <Link size={16} className="shrink-0" />
+                Link
+              </a>
+            </div>
+
+            <hr className="mt-1 border-gray-600" />
+          </div>
         ))}
       </div>
     </div>

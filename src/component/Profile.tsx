@@ -1,4 +1,5 @@
 import profilePic from "../assets/profile_pic.jpg";
+
 import {
   type LucideIcon,
   Users,
@@ -8,21 +9,22 @@ import {
   Link,
   CircleFadingPlus,
 } from "lucide-react";
+
 import LinkComp from "../component/Link.tsx";
 
-// declare the types of the other links
+// Other links types
 type otherLinksType = {
   icon: LucideIcon;
   name: string;
   link?: string;
 };
 
-// declare the type pf the achivements
-type achivementType = {
+// Achievement types
+type achievementType = {
   image: string;
 };
 
-// links of the other links section
+// Other links
 const otherLinks: otherLinksType[] = [
   { icon: MapPin, name: "India" },
   { icon: Clock, name: "19:05 (UTC -12:00)" },
@@ -38,8 +40,8 @@ const otherLinks: otherLinksType[] = [
   },
 ];
 
-// set of the achivements with types
-const achivementsList: achivementType[] = [
+// Achievements list
+const achievementsList: achievementType[] = [
   {
     image:
       "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png",
@@ -49,80 +51,205 @@ const achivementsList: achivementType[] = [
       "https://github.githubassets.com/assets/yolo-default-be0bbff04951.png",
   },
 ];
+
 function Profile() {
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-col p-5 gap-2">
-        <div className="flex flex-row gap-2 sm:flex-row md:flex-col sm:gap-2">
+    <div className="flex flex-col w-full min-w-0">
+      <div className="flex flex-col w-full p-3 sm:p-4 md:p-5 gap-3">
+        {/* Profile Image and Information */}
+        <div
+          className="
+          flex flex-row
+          items-center
+          gap-3
+          w-full
+          min-w-0
+          md:flex-col
+          md:items-start
+          md:gap-3
+        "
+        >
           <img
             src={profilePic}
             alt="profilepic"
-            className="rounded-[200px] w-20 h-20 border-2 border-gray-400 sm:w-20 sm:h-20 md:w-40 md:h-40 lg:w-70 lg:h-70"
+            className="
+              rounded-full
+              w-20 h-20
+              sm:w-24 sm:h-24
+              md:w-36 md:h-36
+              lg:w-44 lg:h-44
+              object-cover
+              border-2 border-gray-400
+              shrink-0
+            "
           />
-          <div className="flex flex-col gap-1">
-            <p className="text-[18px] font-bold sm:text-[18px] md:text-[20px]">Bhargav</p>
-            <p className="text-[18px] text-gray-400/80 sm:text-[18px] md:text-[20px]">GohelBhargav13 · he/him</p>
+
+          <div className="flex flex-col gap-1 min-w-0">
+            <p className="text-lg sm:text-xl font-bold">Bhargav</p>
+
+            <p className="text-sm sm:text-base md:text-lg text-gray-400/80 break-all">
+              GohelBhargav13 · he/him
+            </p>
           </div>
         </div>
-        <div className="max-w-100">
-          <pre className="w-80 text-wrap text-[17px] sm:text-[17px] md:text-[21px]lg:text-2xl">
-            Trust me i am SOFTWARE ENGINEER, Hello, I have Worked with Legecy
-            technologies like PHP as well as work with modern technologies like MERN,
-            Python (My Favorite) with some amazing projects.
-          </pre>
-          <button className="bg-gray-700/60 rounded-lg hover:cursor-pointer hover:bg-gray-600/50 w-70 mt-3 p-1.5 border-2 border-gray-600">
+
+        {/* Profile Description */}
+        <div className="w-full min-w-0">
+          <p
+            className="
+            w-full
+            text-sm
+            sm:text-base
+            md:text-lg
+            lg:text-base
+            text-gray-200
+            leading-relaxed
+            break-all
+          "
+          >
+            Trust me i am SOFTWARE ENGINEER, Hello, I have Worked with Legacy
+            technologies like PHP as well as work with modern technologies like
+            MERN, Python (My Favorite) with some amazing projects.
+          </p>
+
+          {/* Resume Button */}
+          <button
+            className="
+            w-full
+            sm:w-auto
+            sm:min-w-52
+            mt-3
+            p-2
+            rounded-lg
+            bg-gray-700/60
+            border-2 border-gray-600
+            hover:bg-gray-600/50
+            transition-colors
+            cursor-pointer
+          "
+          >
             git move resume
           </button>
 
-          <div className="flex gap-0.5 mt-3 text-gray-300/80 hover:cursor-pointer">
-            <p className="flex gap-1 hover:text-blue-500">
-              <Users size={20} />
+          {/* Followers and Following */}
+          <div
+            className="
+            flex flex-wrap
+            items-center
+            gap-1
+            mt-3
+            text-sm
+            sm:text-base
+            text-gray-300/80
+          "
+          >
+            <p className="flex items-center gap-1 hover:text-blue-500 cursor-pointer">
+              <Users size={18} />
+
               <a
                 href="https://github.com/GohelBhargav13?tab=followers"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 followers
               </a>
             </p>
+
             <Dot />
-            <p className="flex gap-1 hover:text-blue-500">
+
+            <p className="hover:text-blue-500 cursor-pointer">
               <a
                 href="https://github.com/GohelBhargav13?tab=following"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 following
               </a>
             </p>
           </div>
 
-          <div className="mt-3">
-            {otherLinks.map((link) => (
-              <div className="flex gap-2 p-1 text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px]" key={link.name}>
-                <p className="text-gray-500/95">{<link.icon />}</p>
-                {link.link ? (
-                  <a className="hover:text-blue-600" href={link.link}>
-                    {link.name}
-                  </a>
-                ) : (
-                  <p>{link.name}</p>
-                )}
-              </div>
-            ))}
+          {/* Other Links */}
+          <div className="flex flex-col gap-1 mt-3 w-full">
+            {otherLinks.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.name}
+                  className="
+                    flex
+                    items-start
+                    gap-2
+                    p-1
+                    w-full
+                    min-w-0
+                    text-sm
+                    sm:text-base
+                    lg:text-sm
+                    text-gray-300
+                  "
+                >
+                  <Icon size={18} className="text-gray-500 shrink-0 mt-0.5" />
+
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        min-w-0
+                        break-all
+                        hover:text-blue-600
+                        transition-colors
+                      "
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <p className="break-all">{item.name}</p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
-        <hr className="text-gray-500/90 w-75 font-bold mt-2" />
-         <LinkComp
+
+        {/* Divider */}
+        <hr className="w-full border-gray-500/90 mt-2" />
+
+        {/* Achievements Heading */}
+        <LinkComp
           link="https://github.com/GohelBhargav13?tab=achievements"
           children="Achievements"
           key="Achievements"
         />
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4">
-          {achivementsList.map((achive, i) => (
+
+        {/* Achievements */}
+        <div
+          className="
+          grid
+          grid-cols-2
+          sm:grid-cols-2
+          md:grid-cols-4
+          lg:grid-cols-2
+          gap-2
+          w-full
+          justify-items-center
+        "
+        >
+          {achievementsList.map((achievement, index) => (
             <img
-              key={i}
+              key={index}
               width={90}
-              src={achive.image}
-              alt={`${achive.image}-${i}`}
+              src={achievement.image}
+              alt={`Achievement ${index + 1}`}
+              className="
+                w-16 h-16
+                sm:w-20 sm:h-20
+                md:w-20 md:h-20
+                lg:w-16 lg:h-16
+                object-contain
+              "
             />
           ))}
         </div>

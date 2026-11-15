@@ -1,19 +1,47 @@
-import Profile from "../component/Profile"
-import SkillSection from "../component/SkillSection"
+import Profile from "../component/Profile";
+import SkillSection from "../component/SkillSection";
 
 function Skills() {
   return (
-    <div className='max-w-1370 w-full bg-gray-950/95 text-white'>
-        <div className="flex flex-col gap-4 w-full sm:flex sm:flex-col md:flex md:flex-col lg:flex lg:flex-row">
-                <div className="w-[28%] hidden sm:hidden md:block">
-                    <Profile />
-                </div>
-                <div className="w-3/4">
-                   <SkillSection />
-                </div>
+    <div className="w-full max-w-342.5 bg-gray-950/95 text-white">
+      <div
+        className="
+        flex flex-col
+        gap-4
+        w-full
+        p-3 sm:p-4
+        lg:flex-row
+        lg:items-start
+        lg:gap-5
+      "
+      >
+        {/* Profile Section */}
+        <div
+          className="
+          hidden
+          md:block
+          w-full
+          min-w-0
+          lg:w-[28%]
+          lg:shrink-0
+        "
+        >
+          <Profile />
         </div>
+
+        {/* Skills Section */}
+        <div
+          className="
+          w-full
+          min-w-0
+          lg:flex-1
+        "
+        >
+          <SkillSection />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Skills
+export default Skills;
