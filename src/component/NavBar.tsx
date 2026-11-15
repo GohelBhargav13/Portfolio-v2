@@ -42,7 +42,7 @@ function NavBar() {
   }
 
   return (
-    <div className="w-full max-w-342.5 bg-linear-to-br from-black to-gray-950 text-white font-sans border-b-2 border-b-gray-500">
+    <div className="w-full max-w-382.5 bg-linear-to-br from-black to-gray-950 text-white font-sans border-b-2 border-b-gray-500">
       {/* Top Navbar */}
       <div className="w-full px-3 py-2 sm:p-3 flex items-center gap-2 sm:gap-4">
         {/* Left Section */}

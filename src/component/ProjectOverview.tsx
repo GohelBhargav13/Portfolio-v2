@@ -50,7 +50,7 @@ const listOfProjects: projectCardProps[] = [
 
 function ProjectOverview() {
   return (
-    <div className="w-full max-w-342.5 min-w-0 p-2 sm:p-4">
+    <div className="w-full max-w-382.5 min-w-0 p-2 sm:p-4">
       {/* Pinned Projects */}
       <h2 className="text-lg font-semibold mb-2">Pinned</h2>
 

@@ -3,7 +3,7 @@ import ProjectOverview from "../component/ProjectOverview";
 
 function Overview() {
   return (
-    <div className="w-full max-w-342.5 bg-gray-950/95 text-white">
+    <div className="w-full max-w-382.5 bg-gray-950/95 text-white">
       <div
         className="
         flex flex-col
