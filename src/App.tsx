@@ -7,12 +7,14 @@ import Projects from './pages/Projects'
 import Certificate from './pages/Certificate'
 import Contact from './pages/Contact'
 import Skills from './pages/Skills'
+import { Toaster } from "react-hot-toast"
 
 function App() {
 
   return (
     <>
         <NavBar />
+        <Toaster position='bottom-right' reverseOrder={false} />
         <Routes>
           <Route path='/overview' element={<Overview />} />
           <Route index element={<Overview />} />
